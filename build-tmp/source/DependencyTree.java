@@ -14,14 +14,19 @@ import java.io.IOException;
 
 public class DependencyTree extends PApplet {
 
+int x = 50;
+int y = 50;
+String something = "write joyelam";
 
 public void setup(){
 size(1000,700);
 }
 public void draw(){
-	background(0);
+	background(255);
+	fill(0);
+	text("HELLO GRACEFULPOTATO!", 500, 50);
   fill(255,0,0);
-  ellipse(width/2,height/2,50,50);
+  ellipse(width/2,height/2,x,y);
 }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "DependencyTree" };

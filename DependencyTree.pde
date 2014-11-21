@@ -1,3 +1,4 @@
+string something = "write joyelam";
 void setup(){
 size(500,500);
 }

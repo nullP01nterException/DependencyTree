@@ -14,8 +14,9 @@ import java.io.IOException;
 
 public class DependencyTree extends PApplet {
 
+
 public void setup(){
-size(500,500);
+size(1000,700);
 }
 public void draw(){
 	background(0);

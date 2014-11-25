@@ -12,7 +12,7 @@ PImage ImgFour;
 void setup() 
 {
   size(1400, 700);
-  ImgOne = loadImage("background.jpg");
+  ImgOne = loadImage("data/background.jpg");
   ImgTwo = loadImage("la.png");
   ImgThree = loadImage("caflagb.gif");
   ImgFour = loadImage("cuba-flag.gif");

@@ -12,27 +12,21 @@ PImage ImgFour;
 void setup() 
 {
   size(1400, 700);
-  //String urlOne = "http://friday.westnet.com/~crywalt/dymaxion_2003/earthmap10k.reduced.jpg";
- 
-  //webImgOne = loadImage(urlOne, "png");
   ImgOne = loadImage("background.jpg");
   ImgTwo = loadImage("la.png");
   ImgThree = loadImage("caflagb.gif");
   ImgFour = loadImage("cuba-flag.gif");
-
 }
 
 void draw() 
 {
   fill(0);
-  text("HELLO GRACEFULPOTATO!", 500, 50);
+  
   background(255);
   image(ImgOne, 0, 0, 1400, 700);
   image(ImgTwo, 1080, 250, x2, y2); //Laos
   image(ImgThree, 210, 180, x3, y3); //California
   image(ImgFour, 380, 250, x4, y4); //Cuba
-  //image(webImgOne, 0, 0, 1400, 700);
-  
-
+  text("HELLO GRACEFULPOTATO!", 500, 50);
 }
 

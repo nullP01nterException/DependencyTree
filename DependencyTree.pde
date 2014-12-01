@@ -87,7 +87,7 @@ void draw()
     
   } else
   {
-    background(255);
+    background(200);
     image(ImgOne, 0, 100, 1000, 500);
     image(ImgTwo, dimX2, dimY2, x2, y2); //Laos
     image(ImgThree,dimX3 , dimY3, x3, y3); //California

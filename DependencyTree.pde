@@ -183,24 +183,24 @@ void badIndians()
   indians.add(layer1);     //7
   indians.add(width*3/10); //8 Alfred Edward (father)
   indians.add(layer1);     //9
-  indians.add(width/15);   //10 Uncle Tommy
+  indians.add(width/15);   //10 Uncle Tommy and Bella
   indians.add(layer1);     //11
   indians.add(width*3/10); //12 Thomas Anthony Miranda (father's father)
   indians.add(layer2);     //13
-  indians.add(width/10);   //14 Carmen Miranda
+  indians.add(width/2);    //14 Carmen Miranda
   indians.add(layer2);     //15
   indians.add(width/10);   //16 Marquesa
-  indians.add(layer3);     //17
-  indians.add(width*9/10); //18 Dolores
+  indians.add(layer2);     //17
+  indians.add(width/10);   //18 Dolores
   indians.add(layer3);     //19
-  indians.add(width*9/10); //20 Maria Ines Garcia
+  indians.add(width*3/10); //20 Maria Ines\nGarcia
   indians.add(layer3);     //21
-  indians.add(width*9/10); //22 Tomas Santos Miranda
-  indians.add(layer4);     //23
-  indians.add(width*9/10); //24 Tranquilino Miranda
+  indians.add(width/2);    //22 Tomas Santos Miranda
+  indians.add(layer3);     //23
+  indians.add(width*2/5); //24 Tranquilino Miranda
   indians.add(layer4);     //25
-  indians.add(width*9/10); //26 Severiana
-  indians.add(layer5);     //27
+  indians.add(width*3/5); //26 Severiana
+  indians.add(layer4);     //27
   indians.add(width*9/10); //28 Sacramento
   indians.add(layer5);     //29
   indians.add(width*9/10); //30 Jacinto
@@ -209,14 +209,18 @@ void badIndians()
   indians.add(layer4);     //33
   indians.add(width*9/10); //34 Dr. Tarango
   indians.add(layer4);     //35
-  
+  fill(255);
+  strokeWeight(3);
+  line(0,0,1000,700);
+  line(indians.get(6),layer1,indians.get(8),layer1);
+  strokeWeight(1);
   int i = 0;
   while (i<36)
   {
     rect(indians.get(i)-10, indians.get(i+1)-20, 170, 50);
     i+=2;
   }
-  textSize(20);
+  textSize(17);
   fill(0);
   text("Deborah A.\nMiranda",indians.get(0),indians.get(1));
   text("Little Al\nMiranda",indians.get(2),indians.get(3));
@@ -228,6 +232,10 @@ void badIndians()
   text("Carmen Miranda",indians.get(14),indians.get(15));
   text("Marquesa",indians.get(16),indians.get(17));
   text("Dolores",indians.get(18),indians.get(19));
+  text("Maria Ines Garcia",indians.get(20),indians.get(21));
+  text("Tomas Santos\nMiranda",indians.get(22),indians.get(23));
+  text("Tranquilino\nMiranda",indians.get(24),indians.get(25));
+  text("Severiana",indians.get(26),indians.get(27));
 }
 
 void setup() 

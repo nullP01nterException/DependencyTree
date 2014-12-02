@@ -11,6 +11,10 @@ int dimX3 = 210*5/7;
 int dimY3 = 180*5/7+100;
 int dimX4 = 380*5/7;
 int dimY4 = 250*5/7+100;
+int layer1 = 100;
+int layer2 = 225;
+int layer3 = 350;
+int layer4 = 475;
 PImage ImgOne;
 PImage ImgTwo;
 PImage ImgThree;
@@ -18,20 +22,12 @@ PImage ImgFour;
 boolean laos = false;
 boolean calif = false;
 boolean cuba = false;
-
-//int celiaX = 100;
-//int celiaY = 100;
-//int jorgeX = 250;
-//int jorgeY = 100;
 ArrayList<Integer> dreaming = new ArrayList<Integer>();
-
+ArrayList<Integer> indians = new ArrayList<Integer>();
+ArrayList<Integer> spirit = new ArrayList<Integer>();
 
 void setup() 
-{
-  dreaming.add(100);
-  dreaming.add(100);
-  dreaming.add(300);
-  dreaming.add(100);
+{  
   size(1000, 700);
   ImgOne = loadImage("data/background.jpg");
   ImgTwo = loadImage("data/la.png");
@@ -41,48 +37,25 @@ void setup()
 
 void draw() 
 { 
-
   if (laos)
   {
     background(255, 0, 0);
     textSize(30);
     text("The Spirit Catches You and You Fall Down:\nA Hmong Child, Her American Doctors, and\nthe Collision of Two Cultures", 20, 40);
-  } else if (calif)
+    spiritCatches();  
+} else if (calif)
   {
     background(0, 0, 255);
     textSize(30);
     text("Bad Indians: A Tribal Memoir", 20, 40);
+    badIndians();
   } else if (cuba)
   {
     background(0, 255, 0);
     textSize(30);
     fill(0);
-    text("Dreaming in Cuban: A Novel", 20, 40);
-    
-    
-    fill(255);
-    textSize(20);
-    stroke(0);
-    rect(dreaming.get(0)-10, dreaming.get(1)-20, 150, 20);
-    rect(dreaming.get(2)-10,dreaming.get(3)-20,150,20);
-    
-    fill(0);
-    text("Celia Del Pino", dreaming.get(0), dreaming.get(1));
-    text("Jorge Del Pino", dreaming.get(2), dreaming.get(3));
-    //text("Lourdes Puente", lourdesX, lourdesY);
-    //text("Rufino Puente", rufinoX, rufinoY);
-    //text("Pilar Puente", pilarX, pilarY);
-    //text("Felicia Villaverde", feliciaX, feliciaY);
-    //text("Hugo Villaverde", hugoX, hugoY);
-    //text("Luz and Milagro Villaverde", luzX, luzY);
-    //text("Ivanito Villaverde", ivanitoX, ivanitoY);
-    //text("Javier Del Pino", javierX, javierY);
-    //text("Irina Novotny", irinaX,irinaY);
-    //text("Irinita Del Pino", irinitaX, irinitaY);
-    //text("Ernesto Brito", ernestoX, ernestoY);
-    //text("Otto Cruz", ottoX, ottoY);
-    //text("Herminia Delgado", herminiaX, herminiaY);
- 
+    text("Dreaming in Cuban: A Novel", 20, 40);   
+    dreamingCuban();
   } else
   {
     background(0,0,0,0);
@@ -103,24 +76,5 @@ void draw()
   }
 }
 
-void mousePressed()
-{
 
-  if (mouseX > dimX2 && mouseX < dimX2+x2 && mouseY>dimY2 && mouseY<dimY2+y2)
-  {
-    laos = true;
-  } else if (mouseX > dimX3 && mouseX < dimX3+x3 && mouseY > dimY3 &&mouseY < dimY3+y3)
-  {
-    calif = true;
-  } else if (mouseX > dimX4 && mouseX < dimX4+x4 && mouseY >dimY4 && mouseY < dimY4+y4)
-  {
-    cuba = true;
-  }
-  if (mouseX > 1250*5/7 && mouseX < (1250+120)*5/7 && mouseY > 625*5/7+100&&mouseY < 675*5/7+100 )
-  {
-    laos = false;
-    calif = false;
-    cuba = false;
-  }
-}
 

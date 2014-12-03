@@ -334,6 +334,7 @@ public class Sprite{
 	 startGame = false;
 	}
 
+
 	public void buildSprite(){
 		keyPressed();
 		wrap();
@@ -359,6 +360,7 @@ public class Sprite{
 		fill(spriteR, spriteG, spriteB);
 		rect(spriteX,spriteY,sWidth,sHeight);
 	}
+
 
 	private void wrap(){
 		if(spriteX < -10){

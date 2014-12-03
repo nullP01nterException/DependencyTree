@@ -17,7 +17,7 @@ int layer2 = 245;
 int layer3 = 360;
 int layer4 = 470;
 int layer5 = 540;
-PImage ImgOne;
+PImage menu_map;
 PImage ImgTwo;
 PImage ImgThree;
 PImage ImgFour;
@@ -241,7 +241,7 @@ void badIndians()
 void setup() 
 {  
   size(1000, 700);
-  ImgOne = loadImage("data/background.jpg");
+  menu_map = loadImage("data/background.jpg");
   ImgTwo = loadImage("data/la.png");
   ImgThree = loadImage("data/caflagb.gif");
   ImgFour = loadImage("data/cuba-flag.gif");
@@ -273,7 +273,7 @@ void draw()
   } else
   {
     background(0, 0, 0, 0);
-    image(ImgOne, 0, 100, 1000, 500);
+    image(menu_map, 0, 100, 1000, 500);
     image(ImgTwo, dimX2, dimY2, x2, y2); //Laos
     image(ImgThree, dimX3, dimY3, x3, y3); //California
     image(ImgFour, dimX4, dimY4, x4, y4); //Cuba

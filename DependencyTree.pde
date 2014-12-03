@@ -1,4 +1,5 @@
-import java.util.*;
+Sprite thingy = new Sprite();
+
 int x2 = 256/2*5/7;
 int y2 = 171/2*5/7;
 int x3 = (100*10)/9*5/7;
@@ -18,16 +19,17 @@ int layer3 = 360;
 int layer4 = 470;
 int layer5 = 540;
 PImage menu_map;
-PImage ImgTwo;
-PImage ImgThree;
-PImage ImgFour;
+PImage laos_flag;
+PImage cuba_flag;
+PImage calif_flag;
 boolean laos = false;
 boolean calif = false;
 boolean cuba = false;
 ArrayList<Integer> dreaming = new ArrayList<Integer>();
 ArrayList<Integer> indians = new ArrayList<Integer>();
 ArrayList<Integer> spirit = new ArrayList<Integer>();
-void spiritCatches()
+
+public void spiritCatches()
 {
   fill(255);
   textSize(20);
@@ -105,7 +107,7 @@ void spiritCatches()
   text("Dan Murphy", spirit.get(30), spirit.get(31));
 }
 
-void dreamingCuban()
+public void dreamingCuban()
 {
   dreaming.add(width/5); // 0  Celia
   dreaming.add(layer1);      // 1
@@ -170,7 +172,8 @@ void dreamingCuban()
   //text("Otto Cruz", ottoX, ottoY);
   //text("Herminia Delgado", herminiaX, herminiaY);
 }
-void badIndians()
+
+public void badIndians()
 {
   fill(255);
   indians.add(width*9/20); //0 Deborah Miranda
@@ -238,47 +241,65 @@ void badIndians()
   text("Severiana",indians.get(26),indians.get(27));
 }
 
-void setup() 
-{  
-  size(1000, 700);
-  menu_map = loadImage("data/background.jpg");
-  ImgTwo = loadImage("data/la.png");
-  ImgThree = loadImage("data/caflagb.gif");
-  ImgFour = loadImage("data/cuba-flag.gif");
+void setup(){
+size(1000,700);
+background(255);
+menu_map = loadImage("data/background.jpg");
+laos_flag = loadImage("data/la.png");
+cuba_flag = loadImage("data/caflagb.gif");
+calif_flag = loadImage("data/cuba-flag.gif");
+
 }
 
-void draw() 
-{ 
-  if (laos)
+void draw(){
+	 if (laos)
   {
-    background(255, 0, 0);
     textSize(30);
     fill(255);
     text("The Spirit Catches You and You Fall Down: A Hmong Child, Her\nAmerican Doctors, and the Collision of Two Cultures", 20, 650);
     spiritCatches();
-  } else if (calif)
+    fill(0,255,0);
+	noStroke();
+	rect(0,height - 20,width,20);
+    thingy.buildSprite();
+	fill(255,255,225,10);
+	rect(0,0,width,height);
+  } 
+  	else if (calif) 
   {
-    background(0, 0, 255);
     textSize(30);
     fill(255);
     text("Bad Indians: A Tribal Memoir", 20, 675);
     badIndians();
-  } else if (cuba)
+    fill(0,255,0);
+	noStroke();
+	rect(0,height - 20,width,20);
+    thingy.buildSprite();
+	fill(255,255,225,10);
+	rect(0,0,width,height);
+  } 
+  	else if (cuba)
   {
-    background(0, 200, 0);
     textSize(30);
     fill(255);
     text("Dreaming in Cuban: A Novel", 20, 675);   
     dreamingCuban();
-  } else
+    fill(0,255,0);
+	noStroke();
+	rect(0,height - 20,width,20);
+    thingy.buildSprite();
+	fill(255,255,255,10);
+	rect(0,0,width,height);
+  } 
+  	else
   {
     background(0, 0, 0, 0);
     image(menu_map, 0, 100, 1000, 500);
-    image(ImgTwo, dimX2, dimY2, x2, y2); //Laos
-    image(ImgThree, dimX3, dimY3, x3, y3); //California
-    image(ImgFour, dimX4, dimY4, x4, y4); //Cuba
+    image(laos_flag, dimX2, dimY2, x2, y2); //laos_flag
+    image(cuba_flag, dimX3, dimY3, x3, y3); //California
+    image(calif_flag, dimX4, dimY4, x4, y4); //Cuba
   }
-  if (laos||calif||cuba)
+  	if (laos||calif||cuba)
   {
     noStroke();
     fill(255);
@@ -289,7 +310,87 @@ void draw()
     text("Back to\nmain menu", 1250*5/7, 640*5/7+110);
   }
 }
-void mousePressed()
+
+public class Sprite{
+	private int spriteX;
+	private int spriteY;
+	private int sWidth;
+	private int sHeight;
+	private int spriteR;
+	private int spriteG;
+	private int spriteB;
+	private boolean startGame;
+	private boolean isJumping;
+	
+	Sprite(){
+	 spriteX = 500;
+	 spriteY = 630;
+	 sWidth = 50;
+	 sHeight = 50;
+	 spriteR = (int)random(250);
+	 spriteG = (int)random(250);
+	 spriteB = (int)random(250);
+	 isJumping = true;
+	 startGame = false;
+	}
+
+	public void buildSprite(){
+		keyPressed();
+		wrap();
+		if(startGame){
+			jump();
+		}
+		show();
+	}
+
+	private void keyPressed(){
+		if(keyPressed && keyCode == RIGHT){
+			spriteX+=5;
+		}
+		if(keyPressed && keyCode == LEFT){
+			spriteX-=5;
+		}
+		if(key == ' '){
+			startGame = true;
+		}
+	}
+
+	private void show(){
+		fill(spriteR, spriteG, spriteB);
+		rect(spriteX,spriteY,sWidth,sHeight);
+	}
+
+	private void wrap(){
+		if(spriteX < -10){
+			spriteX = 990;
+		}
+		if(spriteX > 995){
+			spriteX = -9;
+		}
+	}
+
+	private void jump(){
+		if(!isJumping){
+			spriteY+=5;
+			if(get(spriteX/2,spriteY+sHeight) == color(0,255,0) 
+				|| get(spriteX,spriteY+sHeight) == color(0,255,0) 
+				|| get(spriteX+sWidth,spriteY+sHeight) == color(0,255,0)){
+					isJumping = true;
+
+					spriteR = (int)random(255);
+	 				spriteG = (int)random(255);
+	 				spriteB = (int)random(255);
+			}
+		}else{
+			spriteY-=5;
+			if(spriteY < 500){
+				isJumping = false;
+			}
+		}
+	}
+}
+
+public void mousePressed()
 {
   if (!cuba&&!laos&&!calif)
   {
@@ -313,4 +414,3 @@ void mousePressed()
     }
   }
 }
-

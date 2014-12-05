@@ -1,5 +1,7 @@
 Sprite thingy = new Sprite();
-
+int scrollX = 0;
+int scrollY = 690;
+int globY = 0;
 int x2 = 256/2*5/7;
 int y2 = 171/2*5/7;
 int x3 = (100*10)/9*5/7;
@@ -12,12 +14,15 @@ int dimX3 = 210*5/7;
 int dimY3 = 180*5/7+100;
 int dimX4 = 380*5/7;
 int dimY4 = 250*5/7+100;
-int layer0 = 20;
-int layer1 = 120;
-int layer2 = 245;
-int layer3 = 360;
-int layer4 = 470;
-int layer5 = 540;
+int layer0 = -150;
+int layer1 = -50;
+int layer2 = 50;
+int layer3 = 150;
+int layer4 = 250;
+int layer5 = 350;
+int layer6 = 450;
+int layer7 = 550;
+int layer8 = 650;
 PImage menu_map;
 PImage laos_flag;
 PImage cuba_flag;
@@ -130,6 +135,12 @@ public void dreamingCuban()
   //dreaming.add(layer4);      // 18
   //dreaming.add(layer4);      // 19
   //dreaming.add(layer4);      // 20
+  textSize(30);
+  fill(255);
+  text("Dreaming in Cuban: A Novel", 20, 675);  
+  textSize(30);
+  fill(255);
+  text("The Spirit Catches You and You Fall Down: A Hmong Child, Her\nAmerican Doctors, and the Collision of Two Cultures", 20, 650);
   fill(255);
   textSize(20);
   stroke(0);
@@ -200,45 +211,72 @@ public void badIndians()
   indians.add(layer3);     //21
   indians.add(width/2);    //22 Tomas Santos Miranda
   indians.add(layer3);     //23
-  indians.add(width*2/5); //24 Tranquilino Miranda
+  indians.add(width*3/5);  //24 Tranquilino Miranda
   indians.add(layer4);     //25
-  indians.add(width*3/5); //26 Severiana
+  indians.add(width*4/5);  //26 Severiana
   indians.add(layer4);     //27
-  indians.add(width*9/10); //28 Sacramento
+  indians.add(width*4/5);  //28 Sacramento
   indians.add(layer5);     //29
-  indians.add(width*9/10); //30 Jacinto
-  indians.add(layer4);     //31
-  indians.add(width*9/10); //32 Faustino Garcia (Maria Ines's parent)
+  indians.add(width*3/5);  //30 Jacinto
+  indians.add(layer5);     //31
+  indians.add(width/5);    //32 Faustino Garcia (Maria Ines's parent)
   indians.add(layer4);     //33
-  indians.add(width*9/10); //34 Dr. Tarango
+  indians.add(10);         //34 Dr. Tarango
   indians.add(layer4);     //35
+  indians.add(width*3/10); //36 Loreta Meadows
+  indians.add(layer6);     //37
+  indians.add(width/10);   //38 James Meadows
+  indians.add(layer6);     //39
+  indians.add(width/5);    //40 Isabel Meadows
+  indians.add(layer5);     //41
+  indians.add(width*2/5);  //42 Harrington
+  indians.add(layer4);     //43
+  indians.add(width*2/5);  //44 Cruz Miranda
+  indians.add(layer7);     //45
+  indians.add(width*3/5);  //46 Cristina Miranda
+  indians.add(layer7);     //47
+  textSize(30);
+  fill(255);
+  text("Bad Indians: A Tribal Memoir", 20, 675);
   fill(255);
   strokeWeight(3);
   line(0,0,1000,700);
   line(indians.get(6),layer1,indians.get(8),layer1);
   strokeWeight(1);
   int i = 0;
-  while (i<36)
+  while (i<48)
   {
-    rect(indians.get(i)-10, indians.get(i+1)-20, 170, 50);
+    stroke(0,255,0);
+    fill(0,255,0);
+    rect(indians.get(i)-10, indians.get(i+1)-20+globY, 170, 50);
     i+=2;
   }
   textSize(17);
   fill(0);
-  text("Deborah A.\nMiranda",indians.get(0),indians.get(1));
-  text("Little Al\nMiranda",indians.get(2),indians.get(3));
-  text("Louise\nMiranda",indians.get(4),indians.get(5));
-  text("Magdel Eleanor\nYeoman",indians.get(6),indians.get(7));
-  text("Alfred Edward\nMiranda",indians.get(8),indians.get(9));
-  text("Uncle Tommy\nand Bella",indians.get(10),indians.get(11));
-  text("Thomas Anthony\nMiranda",indians.get(12),indians.get(13));
-  text("Carmen Miranda",indians.get(14),indians.get(15));
-  text("Marquesa",indians.get(16),indians.get(17));
-  text("Dolores",indians.get(18),indians.get(19));
-  text("Maria Ines Garcia",indians.get(20),indians.get(21));
-  text("Tomas Santos\nMiranda",indians.get(22),indians.get(23));
-  text("Tranquilino\nMiranda",indians.get(24),indians.get(25));
-  text("Severiana",indians.get(26),indians.get(27));
+  text("Deborah A.\nMiranda",indians.get(0),indians.get(1)+globY);
+  text("Little Al\nMiranda",indians.get(2),indians.get(3)+globY);
+  text("Louise\nMiranda",indians.get(4),indians.get(5)+globY);
+  text("Magdel Eleanor\nYeoman",indians.get(6),indians.get(7)+globY);
+  text("Alfred Edward\nMiranda",indians.get(8),indians.get(9)+globY);
+  text("Uncle Tommy\nand Bella",indians.get(10),indians.get(11)+globY);
+  text("Thomas Anthony\nMiranda",indians.get(12),indians.get(13)+globY);
+  text("Carmen Miranda",indians.get(14),indians.get(15)+globY);
+  text("Marquesa",indians.get(16),indians.get(17)+globY);
+  text("Dolores",indians.get(18),indians.get(19)+globY);
+  text("Maria Ines Garcia",indians.get(20),indians.get(21)+globY);
+  text("Tomas Santos\nMiranda",indians.get(22),indians.get(23)+globY);
+  text("Tranquilino\nMiranda",indians.get(24),indians.get(25)+globY);
+  text("Severiana",indians.get(26),indians.get(27)+globY);
+  text("Sacramento",indians.get(28),indians.get(29)+globY);
+  text("Jacinto",indians.get(30),indians.get(31)+globY);
+  text("Faustino Garcia",indians.get(32),indians.get(33)+globY);
+  text("Dr. Tarango",indians.get(34),indians.get(35)+globY);
+  text("Loreta Meadows",indians.get(36),indians.get(37)+globY);
+  text("James Meadows",indians.get(38),indians.get(39)+globY);
+  text("Isabel Meadows",indians.get(40),indians.get(41)+globY);
+  text("Harrington",indians.get(42),indians.get(43)+globY);
+  text("Cruz Miranda",indians.get(44),indians.get(45)+globY);
+  text("Cristina Miranda",indians.get(46),indians.get(47)+globY);
 }
 
 void setup(){
@@ -251,56 +289,48 @@ calif_flag = loadImage("data/cuba-flag.gif");
 
 }
 
-void draw(){
-	 if (laos)
+void draw()
+{
+  if (laos)
   {
-    textSize(30);
-    fill(255);
-    text("The Spirit Catches You and You Fall Down: A Hmong Child, Her\nAmerican Doctors, and the Collision of Two Cultures", 20, 650);
     spiritCatches();
     fill(0,255,0);
-	noStroke();
-	rect(0,height - 20,width,20);
-    thingy.buildSprite();
-	fill(255,255,225,10);
-	rect(0,0,width,height);
+    noStroke();
+    rect(0,height - 20+globY,width,20);
+    fill(255,255,225,10);
+    rect(0,0,width,height);
   } 
-  	else if (calif) 
+  else if (calif) 
   {
-    textSize(30);
-    fill(255);
-    text("Bad Indians: A Tribal Memoir", 20, 675);
     badIndians();
     fill(0,255,0);
-	noStroke();
-	rect(0,height - 20,width,20);
-    thingy.buildSprite();
-	fill(255,255,225,10);
-	rect(0,0,width,height);
+    noStroke();
+    rect(0,height - 20+globY,width,20);
+    fill(255,255,225,10);
+    rect(0,0,width,height);
   } 
-  	else if (cuba)
-  {
-    textSize(30);
-    fill(255);
-    text("Dreaming in Cuban: A Novel", 20, 675);   
+  else if (cuba)
+  { 
     dreamingCuban();
     fill(0,255,0);
-	noStroke();
-	rect(0,height - 20,width,20);
-    thingy.buildSprite();
-	fill(255,255,255,10);
-	rect(0,0,width,height);
+    noStroke();
+    rect(0,height - 20+globY,width,20);
+    fill(255,255,255,10);
+    rect(0,0,width,height);
   } 
-  	else
+  else
   {
+    globY=0;
+    thingy.startGame = false;
     background(0, 0, 0, 0);
     image(menu_map, 0, 100, 1000, 500);
     image(laos_flag, dimX2, dimY2, x2, y2); //laos_flag
     image(cuba_flag, dimX3, dimY3, x3, y3); //California
     image(calif_flag, dimX4, dimY4, x4, y4); //Cuba
   }
-  	if (laos||calif||cuba)
+  if (laos||calif||cuba)
   {
+    thingy.buildSprite();
     noStroke();
     fill(255);
     rect(1250*5/7, 625*5/7+100, 120, 50);
@@ -308,6 +338,16 @@ void draw(){
     textSize(15);
     fill(0);
     text("Back to\nmain menu", 1250*5/7, 640*5/7+110);
+  }
+  if (thingy.startGame)
+  {
+    layer0 +=globY;
+    layer1 +=globY;
+    layer2 +=globY;
+    layer3 +=globY;
+    layer4 +=globY;
+    layer5 +=globY;
+    globY+=1;
   }
 }
 
@@ -335,16 +375,18 @@ public class Sprite{
 	}
 
 
-	public void buildSprite(){
+	public void buildSprite()
+          {
 		keyPressed();
 		wrap();
-		if(startGame){
-			jump();
+		if(startGame)
+                {
+		jump();
 		}
 		show();
-	}
+	  }
 
-	private void keyPressed(){
+	public void keyPressed(){
 		if(keyPressed && keyCode == RIGHT){
 			spriteX+=5;
 		}

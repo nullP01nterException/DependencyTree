@@ -40,83 +40,111 @@ public void spiritCatches()
   textSize(20);
   stroke(0);
   spirit.add(width*2/5);  //0  Lia
-  spirit.add(layer3);     //1
+  spirit.add(layer4);     //1
   spirit.add(width/5);    //2  Foua
-  spirit.add(layer2);     //3
+  spirit.add(layer3);     //3
   spirit.add(width*3/5);  //4  Nao Kao
-  spirit.add(layer2);     //5
+  spirit.add(layer3);     //5
   spirit.add(width*2/5);  //6  Fadiman
-  spirit.add(layer5);     //7 
+  spirit.add(layer7);     //7 
   spirit.add(width*3/5);  //8  Cultural Brokers
-  spirit.add(layer4);     //9
+  spirit.add(layer5);     //9
   spirit.add(width/5);    //10  MCMC
-  spirit.add(layer4);     //11
+  spirit.add(layer5);     //11
   spirit.add(width/5);    //12  Mai
-  spirit.add(layer0);     //13
+  spirit.add(layer1);     //13
   spirit.add(width*2/5);  //14  May
-  spirit.add(layer0);     //15
+  spirit.add(layer1);     //15
   spirit.add(width*3/5);  //16  Yer
-  spirit.add(layer0);     //17
+  spirit.add(layer1);     //17
   spirit.add(width*4/5);  //18  True
-  spirit.add(layer0);     //19
+  spirit.add(layer1);     //19
   spirit.add(width/10);   //20  Zoua
-  spirit.add(layer1);     //21
+  spirit.add(layer2);     //21
   spirit.add(width*3/10); //22  Chong
-  spirit.add(layer1);     //23
+  spirit.add(layer2);     //23
   spirit.add(width/2);    //24  Pang
-  spirit.add(layer1);     //25
+  spirit.add(layer2);     //25
   spirit.add(width*7/10); //26  Cheng
-  spirit.add(layer1);     //27
+  spirit.add(layer2);     //27
   spirit.add(width/10);   //28  Neil & Peggy
-  spirit.add(layer5);     //29
+  spirit.add(layer6);     //29
   spirit.add(width/10);   //30  Dan Murphy
-  spirit.add(layer3);     //31
+  spirit.add(layer4);     //31
+  spirit.add(width*3/5);  //32  George
+  spirit.add(layer7);     //33
+  spirit.add(width*3/4); //34  Dan Moua
+  spirit.add(layer6);     //35
+  spirit.add(width*4/5);  //36  May Ying
+  spirit.add(layer5);     //37
+  spirit.add(width*7/10); //38  Francesca
+  spirit.add(layer4);     //39
+  spirit.add(width*11/20); //40  Dwight
+  spirit.add(layer6);     //41
   textSize(30);
   fill(0);
   text("The Spirit Catches You and You Fall Down: A Hmong Child, Her\nAmerican Doctors, and the Collision of Two Cultures", 20, 625);
   strokeWeight(4);
   stroke(thingy.spriteR, thingy.spriteG, thingy.spriteB);
-  line(width/5, layer2, width*3/5, layer2);
-  line(width/2, layer2, width/2, layer3);
+  line(width/5, layer3+globY, width*3/5, layer3+globY);
+  line(width/2, layer3+globY, width/2, layer4+globY);
+  line(spirit.get(6), spirit.get(7)+globY, spirit.get(32), spirit.get(33)+globY);
   int n = 12;
   while (n<28)
   {
-    line(width/2, layer2, spirit.get(n), spirit.get(n+1));
+    line(width/2, layer3+globY, spirit.get(n), spirit.get(n+1)+globY);
     n+=2;
   }
   int a = 6;
   while (a<12)
   {
-    line(width/2, layer3, spirit.get(a)+100, spirit.get(a+1));
+    line(width/2, spirit.get(1)+globY, spirit.get(a)+100, spirit.get(a+1)+globY);
     a+=2;
+  }
+  int b = 34;
+  while (b<42)
+  {
+    line(spirit.get(8)+50, spirit.get(9)+globY, spirit.get(b)+100, spirit.get(b+1)+globY);
+    b+=2;
+  }
+      int d=28;
+  while (d<32)
+  {
+    line(spirit.get(10), spirit.get(11)+globY, spirit.get(d)+100, spirit.get(d+1)+globY);
+    d+=2;
   }
   strokeWeight(1);
   fill(0, 255, 0);
   stroke(0, 255, 0);
   int i = 0;
-  while (i<32)
+  while (i<42)
   {
-    rect(spirit.get(i)-10, spirit.get(i+1)-20, 170, 50);
+    rect(spirit.get(i)-10, spirit.get(i+1)-20+globY, 170, 50);
     i+=2;
   }    
   fill(0);
   textSize(18);
-  text("Lia Lee", spirit.get(0), spirit.get(1));
-  text("Foua Yang", spirit.get(2), spirit.get(3));
-  text("Nao Kao Lee", spirit.get(4), spirit.get(5));
-  text("Anne Fadiman", spirit.get(6), spirit.get(7));
-  text("Cultural Brokers", spirit.get(8), spirit.get(9));
-  text("MCMC", spirit.get(10), spirit.get(11));
-  text("Mai Lee", spirit.get(12), spirit.get(13));
-  text("May Lee", spirit.get(14), spirit.get(15));
-  text("Yer Lee", spirit.get(16), spirit.get(17));
-  text("True Lee", spirit.get(18), spirit.get(19));
-  text("Zoua Lee", spirit.get(20), spirit.get(21));
-  text("Chong Lee", spirit.get(22), spirit.get(23));
-  text("Pang Lee", spirit.get(24), spirit.get(25));
-  text("Cheng Lee", spirit.get(26), spirit.get(27));
-  text("Neil and Peggy\nLASTNAME", spirit.get(28), spirit.get(29));
-  text("Dan Murphy", spirit.get(30), spirit.get(31));
+  text("Lia Lee", spirit.get(0), spirit.get(1)+globY);
+  text("Foua Yang", spirit.get(2), spirit.get(3)+globY);
+  text("Nao Kao Lee", spirit.get(4), spirit.get(5)+globY);
+  text("Anne Fadiman", spirit.get(6), spirit.get(7)+globY);
+  text("Cultural Brokers", spirit.get(8), spirit.get(9)+globY);
+  text("MCMC", spirit.get(10), spirit.get(11)+globY);
+  text("Mai Lee", spirit.get(12), spirit.get(13)+globY);
+  text("May Lee", spirit.get(14), spirit.get(15)+globY);
+  text("Yer Lee", spirit.get(16), spirit.get(17)+globY);
+  text("True Lee", spirit.get(18), spirit.get(19)+globY);
+  text("Zoua Lee", spirit.get(20), spirit.get(21)+globY);
+  text("Chong Lee", spirit.get(22), spirit.get(23)+globY);
+  text("Pang Lee", spirit.get(24), spirit.get(25)+globY);
+  text("Cheng Lee", spirit.get(26), spirit.get(27)+globY);
+  text("Neil Ernst and\nPeggy Philp", spirit.get(28), spirit.get(29)+globY);
+  text("Dan Murphy", spirit.get(30), spirit.get(31)+globY);
+  text("George Howe Colt", spirit.get(32), spirit.get(33)+globY);
+  text("Dan Moua", spirit.get(34), spirit.get(35)+globY);
+  text("May Ying", spirit.get(36), spirit.get(37)+globY);
+  text("Francesca Farr", spirit.get(38), spirit.get(39)+globY);
+  text("Dwight\nConquergood", spirit.get(40), spirit.get(41)+globY);
 }
 
 public void dreamingCuban()
@@ -159,12 +187,14 @@ public void dreamingCuban()
   stroke(thingy.spriteR, thingy.spriteG, thingy.spriteB);
   strokeWeight(4);
   line(dreaming.get(0), dreaming.get(1)+globY, dreaming.get(2), dreaming.get(1)+globY);
+  
   int n=4;
   while (n<10)
   {
     line(width/2, dreaming.get(1)+globY, dreaming.get(n)+100, dreaming.get(n+1)+globY);
     n+=2;
   }
+
   strokeWeight(1);
   fill(0, 255, 0);
   stroke(0, 255, 0);

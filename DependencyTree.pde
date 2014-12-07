@@ -75,7 +75,7 @@ public void spiritCatches()
   fill(0);
   text("The Spirit Catches You and You Fall Down: A Hmong Child, Her\nAmerican Doctors, and the Collision of Two Cultures", 20, 625);
   strokeWeight(4);
-  stroke(thingy.spriteR,thingy.spriteG,thingy.spriteB);
+  stroke(thingy.spriteR, thingy.spriteG, thingy.spriteB);
   line(width/5, layer2, width*3/5, layer2);
   line(width/2, layer2, width/2, layer3);
   int n = 12;
@@ -91,8 +91,8 @@ public void spiritCatches()
     a+=2;
   }
   strokeWeight(1);
-  fill(0,255,0);
-  stroke(0,255,0);
+  fill(0, 255, 0);
+  stroke(0, 255, 0);
   int i = 0;
   while (i<32)
   {
@@ -156,9 +156,9 @@ public void dreamingCuban()
   text("Dreaming in Cuban: A Novel", 20, 675);  
   fill(255);
   textSize(20);
-  stroke(thingy.spriteR,thingy.spriteG,thingy.spriteB);
+  stroke(thingy.spriteR, thingy.spriteG, thingy.spriteB);
   strokeWeight(4);
-  line(dreaming.get(0),dreaming.get(1)+globY,dreaming.get(2),dreaming.get(1)+globY);
+  line(dreaming.get(0), dreaming.get(1)+globY, dreaming.get(2), dreaming.get(1)+globY);
   int n=4;
   while (n<10)
   {
@@ -166,8 +166,8 @@ public void dreamingCuban()
     n+=2;
   }
   strokeWeight(1);
-  fill(0,255,0);
-  stroke(0,255,0);
+  fill(0, 255, 0);
+  stroke(0, 255, 0);
   int i = 0;
   while (i<30)
   {
@@ -187,7 +187,7 @@ public void dreamingCuban()
   text("Luz and Milagro\nVillaverde", dreaming.get(16), dreaming.get(17)+globY);
   text("Rufino Puente", dreaming.get(18), dreaming.get(19)+globY);
   text("Hugo Villaverde", dreaming.get(20), dreaming.get(21)+globY);
-  text("Irina Novotny", dreaming.get(28),dreaming.get(29)+globY);
+  text("Irina Novotny", dreaming.get(28), dreaming.get(29)+globY);
   text("Ernesto Brito", dreaming.get(24), dreaming.get(25)+globY);
   text("Otto Cruz", dreaming.get(26), dreaming.get(27)+globY);
   text("Herminia\nDelgado", dreaming.get(22), dreaming.get(23)+globY-5);
@@ -248,96 +248,123 @@ public void badIndians()
   fill(0);
   text("Bad Indians: A Tribal Memoir", 20, 675);
   strokeWeight(4);
-  stroke(thingy.spriteR,thingy.spriteG,thingy.spriteB);
-  line(indians.get(6),indians.get(7)+globY,indians.get(8),indians.get(9)+globY);
+  stroke(thingy.spriteR, thingy.spriteG, thingy.spriteB);
+  line(indians.get(6), indians.get(7)+globY, indians.get(8), indians.get(9)+globY);//MadgelAlfred
+  line(indians.get(26)+50, indians.get(27)+globY, indians.get(28)+50, indians.get(29)+globY);//SeverianaSacramento
+  line(indians.get(28), indians.get(29)+globY, indians.get(30), indians.get(31)+globY);//SacramentoJacinto
+  line(indians.get(36), indians.get(37)+globY, indians.get(38), indians.get(39)+globY);//Loreta/James
+  line((indians.get(36)+indians.get(38))/2+80, indians.get(37)+globY, indians.get(40)+50, indians.get(41)+globY);//Isabel
+  line(width/2+100, indians.get(47)+globY, indians.get(24)+50, indians.get(25)+globY);//Tranquilino
+  line(indians.get(40)+50, indians.get(41)+globY, indians.get(42)+50, indians.get(43)+globY);//isabelHarrington
+  line(indians.get(32), indians.get(33)+globY, indians.get(34), indians.get(35)+globY);//FaustinoTarango
+  line(indians.get(20), indians.get(21)+globY, indians.get(22), indians.get(23)+globY);//MariaTomas
+  line(indians.get(16)+50, indians.get(17)+globY, indians.get(18)+50, indians.get(19)+globY);//MarquesaDolores
+  line(indians.get(32)+50, indians.get(33)+globY, indians.get(20)+50, indians.get(21)+globY);//FaustinoMaria
+  line(indians.get(12), indians.get(13)+globY, indians.get(16), indians.get(17)+globY);//MarquesaThomas
+
   int a = 0;
   while (a<6)
   {
-   line(width*7/20,layer1+globY,indians.get(a),indians.get(a+1)+globY);
-   a+=2;
+    line(width/2, layer1+globY, indians.get(a), indians.get(a+1)+globY);
+    a+=2;
   }
-  line(indians.get(44),layer7+globY,indians.get(46),layer7+globY);
+  int c = 8;
+  while (c<12)
+  {
+    line(indians.get(12)-30, indians.get(17)+globY, indians.get(c)+50, indians.get(c+1)+globY);
+    c+=2;
+  }
+  int b = 12;
+  while (b<16)
+  {
+    line(width/2, indians.get(21)+globY, indians.get(b)+50, indians.get(b+1)+globY);
+    b+=2;
+  }
+  line(indians.get(44), layer7+globY, indians.get(46), layer7+globY);
   strokeWeight(1);
   int i = 0;
   while (i<48)
   {
-    stroke(0,255,0);
-    fill(0,255,0);
+    stroke(0, 255, 0);
+    fill(0, 255, 0);
     rect(indians.get(i)-10, indians.get(i+1)-20+globY, 170, 50);
     i+=2;
   }
   textSize(17);
   fill(0);
-  text("Deborah A.\nMiranda",indians.get(0),indians.get(1)+globY);
-  text("Little Al\nMiranda",indians.get(2),indians.get(3)+globY);
-  text("Louise\nMiranda",indians.get(4),indians.get(5)+globY);
-  text("Magdel Eleanor\nYeoman",indians.get(6),indians.get(7)+globY);
-  text("Alfred Edward\nMiranda",indians.get(8),indians.get(9)+globY);
-  text("Uncle Tommy\nand Bella",indians.get(10),indians.get(11)+globY);
-  text("Thomas Anthony\nMiranda",indians.get(12),indians.get(13)+globY);
-  text("Carmen Miranda",indians.get(14),indians.get(15)+globY);
-  text("Marquesa",indians.get(16),indians.get(17)+globY);
-  text("Dolores",indians.get(18),indians.get(19)+globY);
-  text("Maria Ines Garcia",indians.get(20),indians.get(21)+globY);
-  text("Tomas Santos\nMiranda",indians.get(22),indians.get(23)+globY);
-  text("Tranquilino\nMiranda",indians.get(24),indians.get(25)+globY);
-  text("Severiana",indians.get(26),indians.get(27)+globY);
-  text("Sacramento",indians.get(28),indians.get(29)+globY);
-  text("Jacinto",indians.get(30),indians.get(31)+globY);
-  text("Faustino Garcia",indians.get(32),indians.get(33)+globY);
-  text("Dr. Tarango",indians.get(34),indians.get(35)+globY);
-  text("Loreta Meadows",indians.get(36),indians.get(37)+globY);
-  text("James Meadows",indians.get(38),indians.get(39)+globY);
-  text("Isabel Meadows",indians.get(40),indians.get(41)+globY);
-  text("Harrington",indians.get(42),indians.get(43)+globY);
-  text("Cruz Miranda",indians.get(44),indians.get(45)+globY);
-  text("Cristina Miranda",indians.get(46),indians.get(47)+globY);
+  text("Deborah A.\nMiranda", indians.get(0), indians.get(1)+globY);
+  text("Little Al\nMiranda", indians.get(2), indians.get(3)+globY);
+  text("Louise\nMiranda", indians.get(4), indians.get(5)+globY);
+  text("Magdel Eleanor\nYeoman", indians.get(6), indians.get(7)+globY);
+  text("Alfred Edward\nMiranda", indians.get(8), indians.get(9)+globY);
+  text("Uncle Tommy\nand Bella", indians.get(10), indians.get(11)+globY);
+  text("Thomas Anthony\nMiranda", indians.get(12), indians.get(13)+globY);
+  text("Carmen Miranda", indians.get(14), indians.get(15)+globY);
+  text("Marquesa", indians.get(16), indians.get(17)+globY);
+  text("Dolores", indians.get(18), indians.get(19)+globY);
+  text("Maria Ines Garcia", indians.get(20), indians.get(21)+globY);
+  text("Tomas Santos\nMiranda", indians.get(22), indians.get(23)+globY);
+  text("Tranquilino\nMiranda", indians.get(24), indians.get(25)+globY);
+  text("Severiana", indians.get(26), indians.get(27)+globY);
+  text("Sacramento", indians.get(28), indians.get(29)+globY);
+  text("Jacinto", indians.get(30), indians.get(31)+globY);
+  text("Faustino Garcia", indians.get(32), indians.get(33)+globY);
+  text("Dr. Tarango", indians.get(34), indians.get(35)+globY);
+  text("Loreta Meadows", indians.get(36), indians.get(37)+globY);
+  text("James Meadows", indians.get(38), indians.get(39)+globY);
+  text("Isabel Meadows", indians.get(40), indians.get(41)+globY);
+  text("Harrington", indians.get(42), indians.get(43)+globY);
+  text("Cruz Miranda", indians.get(44), indians.get(45)+globY);
+  text("Cristina Miranda", indians.get(46), indians.get(47)+globY);
 }
 void stage()
 {
-    fill(0,255,0);
-    noStroke();
-    rect(0,height - 20+globY,width,20);
-    fill(255,255,225,10);
-    rect(0,0,width,height);
+  fill(0, 255, 0);
+  noStroke();
+  rect(0, height - 20+globY, width, 20);
+  fill(255, 255, 225, 10);
+  rect(0, 0, width, height);
 }
 void back_button()
 {
-    noStroke();
-    fill(255);
-    rect(1250*5/7, 625*5/7+100, 120, 50);
-    triangle(1250*5/7, 600*5/7+100, 1250*5/7, 700*5/7+100, 1200*5/7, 650*5/7+100);
-    textSize(15);
-    fill(0);
-    text("Back to\nmain menu", 1250*5/7, 640*5/7+110);
+  noStroke();
+  fill(50, 150, 255);
+  rect(1250*5/7, 625*5/7+100, 120, 50);
+  triangle(1250*5/7, 600*5/7+100, 1250*5/7, 700*5/7+100, 1200*5/7, 650*5/7+100);
+  textSize(15);
+  fill(0);
+  text("Back to\nmain menu", 1250*5/7, 640*5/7+110);
 }
 void setup()
 {
-size(1000,700);
-background(255);
-menu_map = loadImage("data/background.jpg");
-laos_flag = loadImage("data/la.png");
-cuba_flag = loadImage("data/caflagb.gif");
-calif_flag = loadImage("data/cuba-flag.gif");
+  size(1000, 700);
+  background(255);
+  menu_map = loadImage("data/background.jpg");
+  laos_flag = loadImage("data/la.png");
+  cuba_flag = loadImage("data/caflagb.gif");
+  calif_flag = loadImage("data/cuba-flag.gif");
 }
 
 void draw()
 {
+  println(thingy.startGame);
+  println(thingy.spriteY);
   if (laos)
   {
+    
     spiritCatches();
-  } 
-  else if (calif) 
+  } else if (calif) 
   {
+    
     badIndians();
-  } 
-  else if (cuba)
-  { 
-    dreamingCuban(); 
-  } 
-  else
+  } else if (cuba)
+  {    
+    dreamingCuban();
+  } else
   {
-    thingy.startGame = false;
+    thingy.reset();
+   // thingy.startGame = false;
+    //thingy.spriteY = 630;
     globY=0;
     background(0, 0, 0, 0);
     image(menu_map, 0, 100, 1000, 500);      //world map
@@ -357,87 +384,100 @@ void draw()
   }
 }
 
-public class Sprite{
-	private int spriteX;
-	private int spriteY;
-	private int sWidth;
-	private int sHeight;
-	private int spriteR;
-	private int spriteG;
-	private int spriteB;
-	private boolean startGame;
-	private boolean isJumping;
-	
-	Sprite(){
-	 spriteX = 500;
-	 spriteY = 630;
-	 sWidth = 50;
-	 sHeight = 50;
-	 spriteR = (int)random(250);
-	 spriteG = (int)random(250);
-	 spriteB = (int)random(250);
-	 isJumping = true;
-	 startGame = false;
-	}
+public class Sprite {
+  private int spriteX;
+  public int spriteY;
+  private int sWidth;
+  private int sHeight;
+  private int spriteR;
+  private int spriteG;
+  private int spriteB;
+  private boolean startGame;
+  private boolean isJumping;
+
+  Sprite() {
+    spriteX = 500;
+    spriteY = 630;
+    sWidth = 50;
+    sHeight = 50;
+    spriteR = (int)random(250);
+    spriteG = (int)random(250);
+    spriteB = (int)random(250);
+    isJumping = true;
+    startGame = false;
+  }
 
 
-	public void buildSprite()
-          {
-		keyPressed();
-		wrap();
-		if(startGame)
-                {
-		jump();
-		}
-		show();
-	  }
+  public void buildSprite()
+  {
+    keyPressed();
+    wrap();
+    if (startGame)
+    {
+      jump();
+    }
+    show();
+  }
+  public void reset()
+  {
+    startGame = false;
+    spriteY=630;
+    
+  }
+  public void keyPressed()
+  {
+    if (keyPressed && keyCode == RIGHT)
+    {
+      spriteX+=5;
+    }
+    if (keyPressed && keyCode == LEFT)
+    {
+      spriteX-=5;
+    }
+    if (key == ' ')
+    {
+      startGame = true;
+    }
+    if (key == 'p')
+    {
+      startGame=false;
+    }
+  }
 
-	public void keyPressed(){
-		if(keyPressed && keyCode == RIGHT){
-			spriteX+=5;
-		}
-		if(keyPressed && keyCode == LEFT){
-			spriteX-=5;
-		}
-		if(key == ' '){
-			startGame = true;
-		}
-	}
-
-	private void show(){
-		fill(spriteR, spriteG, spriteB);
-		rect(spriteX,spriteY,sWidth,sHeight);
-	}
+  private void show() {
+    fill(spriteR, spriteG, spriteB);
+    rect(spriteX, spriteY, sWidth, sHeight);
+  }
 
 
-	private void wrap(){
-		if(spriteX < -10){
-			spriteX = 990;
-		}
-		if(spriteX > 995){
-			spriteX = -9;
-		}
-	}
+  private void wrap() {
+    if (spriteX < -10) {
+      spriteX = 990;
+    }
+    if (spriteX > 995) {
+      spriteX = -9;
+    }
+  }
 
-	private void jump(){
-		if(!isJumping){
-			spriteY+=5;
-			if(get(spriteX/2,spriteY+sHeight) == color(0,255,0) 
-				|| get(spriteX,spriteY+sHeight) == color(0,255,0) 
-				|| get(spriteX+sWidth,spriteY+sHeight) == color(0,255,0)){
-					isJumping = true;
+  private void jump() {
+    if (!isJumping) {
+      spriteY+=5;
+      if (get(spriteX/2, spriteY+sHeight) == color(0, 255, 0) 
+        || get(spriteX, spriteY+sHeight) == color(0, 255, 0) 
+        || get(spriteX+sWidth, spriteY+sHeight) == color(0, 255, 0)) {
+        isJumping = true;
 
-					spriteR = (int)random(255);
-	 				spriteG = (int)random(255);
-	 				spriteB = (int)random(255);
-			}
-		}else{
-			spriteY-=5;
-			if(spriteY < 500){
-				isJumping = false;
-			}
-		}
-	}
+        spriteR = (int)random(255);
+        spriteG = (int)random(255);
+        spriteB = (int)random(255);
+      }
+    } else {
+      spriteY-=5;
+      if (spriteY < 500) {
+        isJumping = false;
+      }
+    }
+  }
 }
 
 public void mousePressed()
@@ -464,3 +504,4 @@ public void mousePressed()
     }
   }
 }
+

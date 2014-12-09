@@ -352,8 +352,8 @@ void stage()
   fill(0, 255, 0);
   noStroke();
   rect(0, height - 20+globY, width, 20);
-  fill(255, 255, 225, 10);
-  rect(0, 0, width, height);
+  /*fill(255, 255, 225, 10);
+  rect(0, 0, width, height);*/
 }
 void back_button()
 {
@@ -377,8 +377,7 @@ void setup()
 
 void draw()
 {
-  println(thingy.startGame);
-  println(thingy.spriteY);
+  background(255);
   if (laos)
   {
     
@@ -393,8 +392,6 @@ void draw()
   } else
   {
     thingy.reset();
-   // thingy.startGame = false;
-    //thingy.spriteY = 630;
     globY=0;
     background(0, 0, 0, 0);
     image(menu_map, 0, 100, 1000, 500);      //world map
@@ -422,14 +419,44 @@ public class Sprite {
   private int spriteR;
   private int spriteG;
   private int spriteB;
+  private int spriteSwitch;
   private boolean startGame;
   private boolean isJumping;
+  private boolean faceRight;
 
   Sprite() {
     spriteX = 500;
     spriteY = 630;
-    sWidth = 50;
-    sHeight = 50;
+    sWidth = 30;
+    sHeight = 60;
+    spriteR = (int)random(250);
+    spriteG = (int)random(250);
+    spriteB = (int)random(250);
+    spriteSwitch = 1;
+    isJumping = true;
+    startGame = false;
+    faceRight = true;
+  }
+
+
+  public void buildSprite()
+  {
+    keyEvent();
+    wrap();
+    if (startGame)
+    {
+      jump();
+      show();
+    }
+    show();
+  }
+
+  public void reset()
+  {
+    spriteX = 500;
+    spriteY = 620;
+    sWidth = 5;
+    sHeight = 60;
     spriteR = (int)random(250);
     spriteG = (int)random(250);
     spriteB = (int)random(250);
@@ -437,32 +464,17 @@ public class Sprite {
     startGame = false;
   }
 
-
-  public void buildSprite()
-  {
-    keyPressed();
-    wrap();
-    if (startGame)
-    {
-      jump();
-    }
-    show();
-  }
-  public void reset()
-  {
-    startGame = false;
-    spriteY=630;
-    
-  }
-  public void keyPressed()
+  public void keyEvent()
   {
     if (keyPressed && keyCode == RIGHT)
     {
       spriteX+=5;
-    }
+      faceRight = true;
+  }
     if (keyPressed && keyCode == LEFT)
     {
       spriteX-=5;
+      faceRight = false;
     }
     if (key == ' ')
     {
@@ -476,9 +488,43 @@ public class Sprite {
 
   private void show() {
     fill(spriteR, spriteG, spriteB);
-    rect(spriteX, spriteY, sWidth, sHeight);
+
+    if(startGame && isJumping){
+    	if (faceRight == true){walkRight();}
+        else{walkLeft();}
+    }
+
+    else if(keyPressed /*&& spriteX%14 == 0 || spriteX%14 == 1 || spriteX%14 == 2 || spriteX%14 == 3*/)
+      {
+        if (faceRight == true){walkRight();}
+        else{walkLeft();}
+      }
+
+    else if((startGame && !isJumping) || !keyPressed){stand();}
   }
 
+private void stand(){
+	rect(spriteX, spriteY, sWidth, sHeight);
+    ellipse(spriteX +2, spriteY - 15, 30,30);
+}
+
+  private void walkRight(){
+  	rect(spriteX, spriteY, sWidth, sHeight-20);
+  	rect(spriteX+2, spriteY+35,25,5);//front leg
+  	rect(spriteX+25, spriteY+35, 10, 25);
+  	rect(spriteX+4, spriteY+40, -25, 5);//back leg
+  	rect(spriteX-21, spriteY+15, 10, 25);
+    ellipse(spriteX +2, spriteY - 15, 30,30);
+ }
+
+ private void walkLeft(){
+  	rect(spriteX, spriteY, sWidth, sHeight-20);
+  	rect(spriteX-2, spriteY+40,25,5); //front leg
+  	rect(spriteX-25, spriteY+35, 10, 25);
+  	rect(spriteX+2, spriteY+35, -25, 5); //back leg
+  	rect(spriteX+17, spriteY+20, 10, 25);
+    ellipse(spriteX +2, spriteY - 15, 30,30);
+ }
 
   private void wrap() {
     if (spriteX < -10) {

@@ -377,8 +377,6 @@ void setup()
 
 void draw()
 {
-  println("spriteY: "+thingy.spriteY);
-  println("globY: "+globY);
   background(255);
   if (laos)
   {
@@ -407,6 +405,7 @@ void draw()
     thingy.buildSprite();
     back_button();
       textSize(50);
+      fill(0);
       if(thingy.winstate==2)
       {
         text("You win!!",width*2/5,height/2);

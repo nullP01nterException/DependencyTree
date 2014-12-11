@@ -377,6 +377,8 @@ void setup()
 
 void draw()
 {
+  println("spriteY: "+thingy.spriteY);
+  println("globY: "+globY);
   background(255);
   if (laos)
   {
@@ -404,6 +406,21 @@ void draw()
     stage();
     thingy.buildSprite();
     back_button();
+      textSize(50);
+      if(thingy.winstate==2)
+      {
+        text("You win!!",width*2/5,height/2);
+      }
+      else if(thingy.winstate==1)
+      {
+        text("You lose!!",width*2/5,height/2);
+      }
+      if (thingy.spriteY>1500)
+      {
+        laos=false;
+        calif=false;
+        cuba=false;
+      }
   }
   if (thingy.startGame)
   {
@@ -423,6 +440,7 @@ public class Sprite {
   private boolean startGame;
   private boolean isJumping;
   private boolean faceRight;
+  public int winstate = 0;
 
   Sprite() {
     spriteX = 500;
@@ -488,7 +506,18 @@ public class Sprite {
 
   private void show() {
     fill(spriteR, spriteG, spriteB);
-
+    if (startGame && spriteY<900 && globY > 500)
+    {
+       winstate = 2;
+      }
+    else if (startGame && spriteY>900 && globY<500)
+    {
+      winstate = 1;
+    }
+    else
+    {
+      winstate = 0;
+    }
     if(startGame && isJumping){
     	if (faceRight == true){walkRight();}
         else{walkLeft();}

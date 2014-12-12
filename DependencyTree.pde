@@ -169,7 +169,7 @@ public void dreamingCuban()
   dreaming.add(layer7);      // 17  
   dreaming.add(width/40);    // 18 Rufino Puente
   dreaming.add(layer4);      // 19
-  dreaming.add(width*7/10);     // 20 Hugo Villaverde
+  dreaming.add(width/2+100);     // 20 Hugo Villaverde
   dreaming.add(layer4);      // 21
   dreaming.add(width*3/10);   // 22 Herminia
   dreaming.add(layer5);      // 23
@@ -198,6 +198,7 @@ public void dreamingCuban()
   line(dreaming.get(6)+100, dreaming.get(7)+globY, dreaming.get(16)+100, dreaming.get(17)+globY);
   line(dreaming.get(22)+100, dreaming.get(23)+globY, dreaming.get(30)+100, dreaming.get(31)+globY);
   line(dreaming.get(32)+100, dreaming.get(33)+globY, dreaming.get(0)+100, dreaming.get(1)+globY);
+  line(dreaming.get(8)+100, dreaming.get(9)+globY, dreaming.get(28)+100, dreaming.get(29)+globY);
   
   int n=4;
   while (n<10)

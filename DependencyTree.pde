@@ -429,6 +429,7 @@ void draw()
       if(thingy.winstate==2)
       {
         text("You win!!",width*2/5,height/2);
+        System.out.println("\u0007");
       }
       else if(thingy.winstate==1)
       {

@@ -175,26 +175,30 @@ public void dreamingCuban()
   dreaming.add(layer5);      // 7
   dreaming.add(width*5/6);   // 8  Javier
   dreaming.add(layer5);      // 9  
-  dreaming.add(width/10);    // 10  Pilar
+  dreaming.add(width/10-80);    // 10  Pilar
   dreaming.add(layer6);      // 11
-  dreaming.add(width*3/10);  // 12  Ivanito
+  dreaming.add(width*3/10-80);  // 12  Ivanito
   dreaming.add(layer6);      // 13
-  dreaming.add(width*7/10);  // 14  Irinita
-  dreaming.add(layer7);      // 15
+  dreaming.add(width*5/6);  // 14  Irinita
+  dreaming.add(layer6);      // 15
   dreaming.add(width/2);     // 16  Luz and Milagro
   dreaming.add(layer7);      // 17  
   dreaming.add(width/40);    // 18 Rufino Puente
   dreaming.add(layer4);      // 19
-  dreaming.add(width*3/10);     // 20 Hugo Villaverde
+  dreaming.add(width/2+100);     // 20 Hugo Villaverde
   dreaming.add(layer4);      // 21
   dreaming.add(width*3/10);   // 22 Herminia
   dreaming.add(layer5);      // 23
-  dreaming.add(width*3/5);   // 24 Ernesto Brito
+  dreaming.add(width/2-80);   // 24 Ernesto Brito
   dreaming.add(layer6);      // 25
-  dreaming.add(width*4/5);   // 26 Otto Cruz
+  dreaming.add(width*7/10-80);   // 26 Otto Cruz
   dreaming.add(layer6);      // 27
-  dreaming.add(width*2/3);   // 28 Irina Novotny
+  dreaming.add(width*4/5);   // 28 Irina Novotny
   dreaming.add(layer4);      // 29
+  dreaming.add(width*2/5);   // 30 Santeria
+  dreaming.add(layer2);      // 31
+  dreaming.add(width/10);   // 32 El Lider (Fidel Castro)
+  dreaming.add(layer2);      // 33
   textSize(30);
   fill(0);
   text("Dreaming in Cuban: A Novel", 20, 675);  
@@ -203,6 +207,14 @@ public void dreamingCuban()
   stroke(thingy.spriteR, thingy.spriteG, thingy.spriteB);
   strokeWeight(4);
   line(dreaming.get(0), dreaming.get(1)+globY, dreaming.get(2), dreaming.get(1)+globY);
+  line(dreaming.get(4)+100, dreaming.get(5)+globY, dreaming.get(18)+100, dreaming.get(19)+globY);
+  line(dreaming.get(8)+100, dreaming.get(9)+globY, dreaming.get(14)+100, dreaming.get(15)+globY);
+  line(dreaming.get(4)+100, dreaming.get(5)+globY, dreaming.get(10)+100, dreaming.get(11)+globY);
+  line(dreaming.get(6)+100, dreaming.get(7)+globY, dreaming.get(12)+100, dreaming.get(13)+globY);
+  line(dreaming.get(6)+100, dreaming.get(7)+globY, dreaming.get(16)+100, dreaming.get(17)+globY);
+  line(dreaming.get(22)+100, dreaming.get(23)+globY, dreaming.get(30)+100, dreaming.get(31)+globY);
+  line(dreaming.get(32)+100, dreaming.get(33)+globY, dreaming.get(0)+100, dreaming.get(1)+globY);
+  line(dreaming.get(8)+100, dreaming.get(9)+globY, dreaming.get(28)+100, dreaming.get(29)+globY);
   
   int n=4;
   while (n<10)
@@ -210,12 +222,18 @@ public void dreamingCuban()
     line(width/2, dreaming.get(1)+globY, dreaming.get(n)+100, dreaming.get(n+1)+globY);
     n+=2;
   }
+    int f=20;
+  while (f<28)
+  {
+    line(width/2+100, dreaming.get(7)+globY, dreaming.get(f)+100, dreaming.get(f+1)+globY);
+   f+=2;
+  }
 
   strokeWeight(1);
   fill(0, 255, 0);
   stroke(0, 255, 0);
   int i = 0;
-  while (i<30)
+  while (i<34)
   {
     rect(dreaming.get(i)-10, dreaming.get(i+1)-20+globY, 170, 50);
     i+=2;
@@ -237,6 +255,8 @@ public void dreamingCuban()
   text("Ernesto Brito", dreaming.get(24), dreaming.get(25)+globY);
   text("Otto Cruz", dreaming.get(26), dreaming.get(27)+globY);
   text("Herminia\nDelgado", dreaming.get(22), dreaming.get(23)+globY-5);
+  text("Santeria", dreaming.get(30), dreaming.get(31)+globY);
+  text("El Lider", dreaming.get(32), dreaming.get(33)+globY-5);
 }
 
 public void badIndians()
@@ -420,6 +440,23 @@ public void draw()
     stage();
     thingy.buildSprite();
     back_button();
+      textSize(50);
+      fill(0);
+      if(thingy.winstate==2)
+      {
+        text("You win!!",width*2/5,height/2);
+        System.out.println("\u0007");
+      }
+      else if(thingy.winstate==1)
+      {
+        text("You lose!!",width*2/5,height/2);
+      }
+      if (thingy.spriteY>1500)
+      {
+        laos=false;
+        calif=false;
+        cuba=false;
+      }
   }
   if (thingy.startGame)
   {
@@ -439,6 +476,7 @@ public class Sprite {
   private boolean startGame;
   private boolean isJumping;
   private boolean faceRight;
+  public int winstate = 0;
 
   Sprite() {
     spriteX = 500;
@@ -504,7 +542,18 @@ public class Sprite {
 
   private void show() {
     fill(spriteR, spriteG, spriteB);
-
+    if (startGame && spriteY<900 && globY > 500)
+    {
+       winstate = 2;
+      }
+    else if (startGame && spriteY>900 && globY<500)
+    {
+      winstate = 1;
+    }
+    else
+    {
+      winstate = 0;
+    }
     if(startGame && isJumping){
     	if (faceRight == true){walkRight();}
         else{walkLeft();}

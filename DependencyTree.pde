@@ -381,11 +381,11 @@ void back_button()
 {
   noStroke();
   fill(50, 150, 255);
-  rect(1250*5/7, 625*5/7+100, 120, 50);
+  rect(1250*5/7, 540, 120, 50);
   triangle(1250*5/7, 600*5/7+100, 1250*5/7, 700*5/7+100, 1200*5/7, 650*5/7+100);
   textSize(15);
   fill(0);
-  text("Back to\nmain menu", 1250*5/7, 640*5/7+110);
+  text("Back to\nmain menu", 1250*5/7, 557);
 }
 void setup()
 {
@@ -551,7 +551,7 @@ public class Sprite {
       } else {
         walkLeft();
       }
-    } else if (keyPressed /*&& spriteX%14 == 0 || spriteX%14 == 1 || spriteX%14 == 2 || spriteX%14 == 3*/)
+    } else if (keyPressed)
     {
       if (faceRight == true) {
         walkRight();
@@ -572,8 +572,12 @@ public class Sprite {
     rect(spriteX, spriteY, sWidth, sHeight-20);
     rect(spriteX+2, spriteY+35, 25, 5);//front leg
     rect(spriteX+25, spriteY+35, 10, 25);
+    rect(spriteX, spriteY+20, 20, 5); //front arm
+    rect(spriteX+15,spriteY+5,5,20);
     rect(spriteX+4, spriteY+40, -25, 5);//back leg
-    rect(spriteX-21, spriteY+15, 10, 25);
+    rect(spriteX-21, spriteY+15, 7, 25);
+    rect(spriteX, spriteY+10,-13,5);//back arm
+    rect(spriteX-13,spriteY+15,5,13);
     ellipse(spriteX +2, spriteY - 15, 30, 30);
   }
 
@@ -581,8 +585,12 @@ public class Sprite {
     rect(spriteX, spriteY, sWidth, sHeight-20);
     rect(spriteX-2, spriteY+40, 25, 5); //front leg
     rect(spriteX-25, spriteY+35, 10, 25);
+    rect(spriteX,spriteY+20,-15,5); //front arm
+    rect(spriteX-15,spriteY+5,5,20);
     rect(spriteX+2, spriteY+35, -25, 5); //back leg
-    rect(spriteX+17, spriteY+20, 10, 25);
+    rect(spriteX+17, spriteY+20, 7, 25);
+    rect(spriteX,spriteY+10,17,5); //back arm
+    rect(spriteX+13,spriteY+12,5,20);
     ellipse(spriteX +2, spriteY - 15, 30, 30);
   }
 

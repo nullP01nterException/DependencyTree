@@ -1,4 +1,5 @@
 //Jolina Lam and Grace O'Hair-Sherman
+//Merrill Core Project
 Sprite thingy = new Sprite();
 int scrollX = 0;
 int scrollY = 690;

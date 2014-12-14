@@ -1,3 +1,4 @@
+//Jolina Lam and Grace O'Hair-Sherman
 Sprite thingy = new Sprite();
 int scrollX = 0;
 int scrollY = 690;

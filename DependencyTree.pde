@@ -109,7 +109,7 @@ public void spiritCatches()
     line(spirit.get(8)+50, spirit.get(9)+globY, spirit.get(b)+100, spirit.get(b+1)+globY);
     b+=2;
   }
-      int d=28;
+  int d=28;
   while (d<32)
   {
     line(spirit.get(10), spirit.get(11)+globY, spirit.get(d)+100, spirit.get(d+1)+globY);
@@ -201,18 +201,18 @@ public void dreamingCuban()
   line(dreaming.get(22)+100, dreaming.get(23)+globY, dreaming.get(30)+100, dreaming.get(31)+globY);
   line(dreaming.get(32)+100, dreaming.get(33)+globY, dreaming.get(0)+100, dreaming.get(1)+globY);
   line(dreaming.get(8)+100, dreaming.get(9)+globY, dreaming.get(28)+100, dreaming.get(29)+globY);
-  
+
   int n=4;
   while (n<10)
   {
     line(width/2, dreaming.get(1)+globY, dreaming.get(n)+100, dreaming.get(n+1)+globY);
     n+=2;
   }
-    int f=20;
+  int f=20;
   while (f<28)
   {
     line(width/2+100, dreaming.get(7)+globY, dreaming.get(f)+100, dreaming.get(f+1)+globY);
-   f+=2;
+    f+=2;
   }
 
   strokeWeight(1);
@@ -371,11 +371,11 @@ public void badIndians()
 }
 void stage()
 {
-  image(sky,0,0,width,height);
+  image(sky, 0, 0, width, height);
   fill(0, 255, 0);
   noStroke();
   rect(0, height - 20+globY, width, 20);
-    image(grass,0,0,width,height);
+  image(grass, 0, 0, width, height+globY);
 }
 void back_button()
 {
@@ -402,50 +402,53 @@ void setup()
 void draw()
 {
   background(255);
-  if (laos)
-  {
-    
-    spiritCatches();
-  } else if (calif) 
-  {
-    
-    badIndians();
-  } else if (cuba)
-  {    
-    dreamingCuban();
-  } else
-  {
-    thingy.reset();
-    globY=0;
-    background(0, 0, 0, 0);
-    image(menu_map, 0, 100, 1000, 500);      //world map
-    image(laos_flag, dimX2, dimY2, x2, y2);  //Laos
-    image(cuba_flag, dimX3, dimY3, x3, y3);  //California
-    image(calif_flag, dimX4, dimY4, x4, y4); //Cuba
-  }
   if (laos||calif||cuba)
   {
     stage();
-    thingy.buildSprite();
+    textSize(50);
+    fill(0);
+    if (thingy.winstate==2)
+    {
+      text("You win!!", width*2/5, height/2);
+      System.out.println("\u0007");
+    } else if (thingy.winstate==1)
+    {
+      text("You lose!!", width*2/5, height/2);
+    }
+    if (thingy.winstate==1&&thingy.spriteY>1500)
+    {
+      laos=false;
+      calif=false;
+      cuba=false;
+    }
+    if (laos)
+    {  
+      spiritCatches();
+    }
+    else if (calif) 
+    {
+      badIndians();
+    } 
+    else if (cuba)
+    {    
+      dreamingCuban();
+    }
+    if(!thingy.startGame||thingy.winstate==2   )
+    {
     back_button();
-      textSize(50);
-      fill(0);
-      if(thingy.winstate==2)
-      {
-        text("You win!!",width*2/5,height/2);
-        System.out.println("\u0007");
-      }
-      else if(thingy.winstate==1)
-      {
-        text("You lose!!",width*2/5,height/2);
-      }
-      if (thingy.spriteY>1500)
-      {
-        laos=false;
-        calif=false;
-        cuba=false;
-      }
+    } 
+    thingy.buildSprite();
   }
+  else
+    {
+      thingy.reset();
+      globY=0;
+      background(0, 0, 0, 0);
+      image(menu_map, 0, 100, 1000, 500);      //world map
+      image(laos_flag, dimX2, dimY2, x2, y2);  //Laos
+      image(cuba_flag, dimX3, dimY3, x3, y3);  //California
+      image(calif_flag, dimX4, dimY4, x4, y4); //Cuba
+    }
   if (thingy.startGame)
   {
     globY+=1;
@@ -512,7 +515,7 @@ public class Sprite {
     {
       spriteX+=5;
       faceRight = true;
-  }
+    }
     if (keyPressed && keyCode == LEFT)
     {
       spriteX-=5;
@@ -532,52 +535,54 @@ public class Sprite {
     fill(spriteR, spriteG, spriteB);
     if (startGame && spriteY<900 && globY > 500)
     {
-       winstate = 2;
-      }
-    else if (startGame && spriteY>900 && globY<500)
+      winstate = 2;
+    } else if (startGame && spriteY>900 && globY<500)
     {
       winstate = 1;
-    }
-    else
+    } else
     {
       winstate = 0;
     }
-    if(startGame && isJumping){
-    	if (faceRight == true){walkRight();}
-        else{walkLeft();}
-    }
-
-    else if(keyPressed /*&& spriteX%14 == 0 || spriteX%14 == 1 || spriteX%14 == 2 || spriteX%14 == 3*/)
-      {
-        if (faceRight == true){walkRight();}
-        else{walkLeft();}
+    if (startGame && isJumping) {
+      if (faceRight == true) {
+        walkRight();
+      } else {
+        walkLeft();
       }
-
-    else if((startGame && !isJumping) || !keyPressed){stand();}
+    } else if (keyPressed /*&& spriteX%14 == 0 || spriteX%14 == 1 || spriteX%14 == 2 || spriteX%14 == 3*/)
+    {
+      if (faceRight == true) {
+        walkRight();
+      } else {
+        walkLeft();
+      }
+    } else if ((startGame && !isJumping) || !keyPressed) {
+      stand();
+    }
   }
 
-private void stand(){
-	rect(spriteX, spriteY, sWidth, sHeight);
-    ellipse(spriteX +2, spriteY - 15, 30,30);
-}
+  private void stand() {
+    rect(spriteX, spriteY, sWidth, sHeight);
+    ellipse(spriteX +2, spriteY - 15, 30, 30);
+  }
 
-  private void walkRight(){
-  	rect(spriteX, spriteY, sWidth, sHeight-20);
-  	rect(spriteX+2, spriteY+35,25,5);//front leg
-  	rect(spriteX+25, spriteY+35, 10, 25);
-  	rect(spriteX+4, spriteY+40, -25, 5);//back leg
-  	rect(spriteX-21, spriteY+15, 10, 25);
-    ellipse(spriteX +2, spriteY - 15, 30,30);
- }
+  private void walkRight() {
+    rect(spriteX, spriteY, sWidth, sHeight-20);
+    rect(spriteX+2, spriteY+35, 25, 5);//front leg
+    rect(spriteX+25, spriteY+35, 10, 25);
+    rect(spriteX+4, spriteY+40, -25, 5);//back leg
+    rect(spriteX-21, spriteY+15, 10, 25);
+    ellipse(spriteX +2, spriteY - 15, 30, 30);
+  }
 
- private void walkLeft(){
-  	rect(spriteX, spriteY, sWidth, sHeight-20);
-  	rect(spriteX-2, spriteY+40,25,5); //front leg
-  	rect(spriteX-25, spriteY+35, 10, 25);
-  	rect(spriteX+2, spriteY+35, -25, 5); //back leg
-  	rect(spriteX+17, spriteY+20, 10, 25);
-    ellipse(spriteX +2, spriteY - 15, 30,30);
- }
+  private void walkLeft() {
+    rect(spriteX, spriteY, sWidth, sHeight-20);
+    rect(spriteX-2, spriteY+40, 25, 5); //front leg
+    rect(spriteX-25, spriteY+35, 10, 25);
+    rect(spriteX+2, spriteY+35, -25, 5); //back leg
+    rect(spriteX+17, spriteY+20, 10, 25);
+    ellipse(spriteX +2, spriteY - 15, 30, 30);
+  }
 
   private void wrap() {
     if (spriteX < -10) {

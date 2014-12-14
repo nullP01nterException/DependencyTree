@@ -152,9 +152,9 @@ public void spiritCatches()
 public void dreamingCuban()
 {
   dreaming.add(width/5);     // 0  Celia
-  dreaming.add(layer3);      // 1
+  dreaming.add(layer2);      // 1
   dreaming.add(width*3/5);   // 2  Jorge
-  dreaming.add(layer3);      // 3
+  dreaming.add(layer2);      // 3
   dreaming.add(width/12);    // 4  Lourdes
   dreaming.add(layer5);      // 5
   dreaming.add(width/2);     // 6  Felicia
@@ -170,21 +170,21 @@ public void dreamingCuban()
   dreaming.add(width/2);     // 16  Luz and Milagro
   dreaming.add(layer7);      // 17  
   dreaming.add(width/40);    // 18 Rufino Puente
-  dreaming.add(layer4);      // 19
+  dreaming.add(layer3);      // 19
   dreaming.add(width/2+100);     // 20 Hugo Villaverde
-  dreaming.add(layer4);      // 21
+  dreaming.add(layer3);      // 21
   dreaming.add(width*3/10);   // 22 Herminia
-  dreaming.add(layer5);      // 23
+  dreaming.add(layer4);      // 23
   dreaming.add(width/2-80);   // 24 Ernesto Brito
   dreaming.add(layer6);      // 25
   dreaming.add(width*7/10-80);   // 26 Otto Cruz
   dreaming.add(layer6);      // 27
   dreaming.add(width*4/5);   // 28 Irina Novotny
-  dreaming.add(layer4);      // 29
+  dreaming.add(layer3);      // 29
   dreaming.add(width*2/5);   // 30 Santeria
-  dreaming.add(layer2);      // 31
+  dreaming.add(layer1);      // 31
   dreaming.add(width/10);   // 32 El Lider (Fidel Castro)
-  dreaming.add(layer2);      // 33
+  dreaming.add(layer1);      // 33
   textSize(30);
   fill(0);
   text("Dreaming in Cuban: A Novel", 20, 675);  
@@ -409,6 +409,7 @@ void draw()
     fill(0);
     if (thingy.winstate==2)
     {
+      thingy.spriteY=height/2+100;
       text("You win!!", width*2/5, height/2);
       System.out.println("\u0007");
     } else if (thingy.winstate==1)
@@ -507,6 +508,7 @@ public class Sprite {
     spriteB = (int)random(250);
     isJumping = true;
     startGame = false;
+    winstate = 0;
   }
 
   public void keyEvent()
@@ -525,7 +527,7 @@ public class Sprite {
     {
       startGame = true;
     }
-    if (key == 'p')
+    if (keyPressed && key == 'p')
     {
       startGame=false;
     }
@@ -533,7 +535,7 @@ public class Sprite {
 
   private void show() {
     fill(spriteR, spriteG, spriteB);
-    if (startGame && spriteY<900 && globY > 500)
+    if (startGame && spriteY<900 && globY > 750)
     {
       winstate = 2;
     } else if (startGame && spriteY>900 && globY<500)
@@ -635,6 +637,7 @@ public void mousePressed()
       laos = false;
       calif = false;
       cuba = false;
+      thingy.reset();
     }
   }
 }

@@ -43,6 +43,8 @@ PImage menu_map;
 PImage laos_flag;
 PImage cuba_flag;
 PImage calif_flag;
+PImage grass;
+PImage sky;
 boolean laos = false;
 boolean calif = false;
 boolean cuba = false;
@@ -385,11 +387,11 @@ public void badIndians()
 }
 public void stage()
 {
+  image(sky,0,0,width,height);
   fill(0, 255, 0);
   noStroke();
   rect(0, height - 20+globY, width, 20);
-  /*fill(255, 255, 225, 10);
-  rect(0, 0, width, height);*/
+    image(grass,0,0,width,height);
 }
 public void back_button()
 {
@@ -409,6 +411,8 @@ public void setup()
   laos_flag = loadImage("data/la.png");
   cuba_flag = loadImage("data/caflagb.gif");
   calif_flag = loadImage("data/cuba-flag.gif");
+  grass = loadImage("data/grass.gif");
+  sky = loadImage("data/Sky Background 2.png");
 }
 
 public void draw()

@@ -1,0 +1,19 @@
+int x = 0;
+int y = 490;
+
+void setup()
+{
+size(650,500);
+}
+void draw()
+{
+background(255);
+pushMatrix();
+fill(0);
+translate(width/2,height/2);
+translate(-x,-y);
+rect(-30,y,100,10);
+y--;
+println(y);
+popMatrix();
+}

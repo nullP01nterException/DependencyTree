@@ -411,7 +411,6 @@ void draw()
     {
       thingy.spriteY=height/2+100;
       text("You win!!", width*2/5, height/2);
-      System.out.println("\u0007");
     } else if (thingy.winstate==1)
     {
       text("You lose!!", width*2/5, height/2);
